@@ -3,6 +3,8 @@ import { Text, View } from 'react-native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { NavigationContainer } from '@react-navigation/native'
 
+import Login from './src/screens/login';
+
 const Stack = createNativeStackNavigator();
 
 export default class App extends Component {
@@ -10,7 +12,7 @@ export default class App extends Component {
     return (
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen />
+          <Stack.Screen name="Login" component={Login} />
         </Stack.Navigator>
       </NavigationContainer>
     )
