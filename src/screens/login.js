@@ -1,24 +1,47 @@
-import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  TextInput,
-} from 'react-native';
+import React, {useState} from 'react';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+
+import {TextInput} from 'react-native-paper';
 
 const login = props => {
+  const [name, setName] = useState('');
+  const [pass, setPass] = useState('');
+
+  function onSubmit() {
+    console.log(name);
+    console.log(pass);
+  }
+
   return (
-    <View style={styles.Container}>
-      <View>
-        <TextInput style={styles.TextColr} placeholder="Enter Name" />
+    <View>
+      <View style={styles.InputView}>
+        <TextInput
+          style={styles.TextInpColr}
+          mode="outlined"
+          label="Enter name"
+          outlineColor="blue"
+          activeOutlineColor="blue"
+          value={name}
+          onChangeText={name => setName(name)}
+          onFocus={event => {
+            console.log(event);
+          }}
+        />
+        <TextInput
+          style={styles.TextInpColr}
+          mode="outlined"
+          label="Enter password"
+          outlineColor="blue"
+          activeOutlineColor="blue"
+          secureTextEntry
+          value={pass}
+          onChangeText={pass => setPass(pass)}
+          right={<TextInput.Icon name="eye" />}
+        />
+        <TouchableOpacity style={styles.TouchButton} onPress={onSubmit}>
+          <Text style={styles.TextColr}>Submit</Text>
+        </TouchableOpacity>
       </View>
-      <TouchableOpacity
-        style={styles.TouchButton}
-        onPress={() => props.navigation.navigate('Home')}>
-        <Text style={styles.TextColr}>Click Here</Text>
-      </TouchableOpacity>
-      <Text style={styles.TextColr}>Login</Text>
     </View>
   );
 };
@@ -34,6 +57,9 @@ const styles = StyleSheet.create({
   TextColr: {
     color: 'black',
   },
+  TextInpColr: {
+    margin: 3,
+  },
   TouchButton: {
     height: 40,
     width: 100,
@@ -42,5 +68,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'yellow',
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 8,
+  },
+  InputView: {
+    margin: 10,
   },
 });
