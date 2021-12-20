@@ -1,10 +1,18 @@
 import React from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  TextInput,
+} from 'react-native';
 
 const login = props => {
-  console.log(props.navigation);
   return (
     <View style={styles.Container}>
+      <View>
+        <TextInput style={styles.TextColr} placeholder="Enter Name" />
+      </View>
       <TouchableOpacity
         style={styles.TouchButton}
         onPress={() => props.navigation.navigate('Home')}>
