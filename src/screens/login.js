@@ -10,6 +10,9 @@ const login = props => {
   function onSubmit() {
     console.log(name);
     console.log(pass);
+    if (name != null && name != '' && pass != null && pass != '')
+      props.navigation.navigate('Home');
+    else alert('enter Name and Pass');
   }
 
   return (
@@ -23,9 +26,6 @@ const login = props => {
           activeOutlineColor="blue"
           value={name}
           onChangeText={name => setName(name)}
-          onFocus={event => {
-            console.log(event);
-          }}
         />
         <TextInput
           style={styles.TextInpColr}
