@@ -1,10 +1,12 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import React from 'react';
+import {View, Text, SafeAreaView} from 'react-native';
 
 export default function login() {
-    return (
-        <View>
-            <Text>Login</Text>
-        </View>
-    )
+  return (
+    <SafeAreaView>
+      <View>
+        <Text>Login</Text>
+      </View>
+    </SafeAreaView>
+  );
 }
