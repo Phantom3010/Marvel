@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native'
 export default function singup() {
     return (
         <View>
-            <Text></Text>
+            <Text>Hello React</Text>
         </View>
     )
 }
